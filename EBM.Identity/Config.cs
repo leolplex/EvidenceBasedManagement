@@ -32,7 +32,7 @@ namespace EBM.Identity
                         },
 
                         // scopes that client has access to
-                        AllowedScopes = { "api1" }
+                        AllowedScopes = { "Iterations" }
                     }
             };
     }
