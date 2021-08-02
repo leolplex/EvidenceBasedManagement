@@ -22,14 +22,14 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test      
-      run: dotnet test --collect:"XPlat Code Coverage"
+      run: dotnet test --settings coverlet.runsettings --logger trx
     - name: SonarCloud Scan
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /k:"leolplex_EvidenceBasedManagement" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:"sonar.vbnet.opencover.reportsPaths=**/coverage.cobertura.xml"
+        dotnet sonarscanner begin /k:"leolplex_EvidenceBasedManagement" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="EBM.Identity.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="EBM.Identity.Test\TestResults\*.trx"
         dotnet build
         dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
