@@ -21,8 +21,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+    - name: Test      
       run: dotnet test --collect:"XPlat Code Coverage"
     - name: SonarCloud Scan
       env:
