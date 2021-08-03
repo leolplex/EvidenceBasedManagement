@@ -23,8 +23,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test      
       run: dotnet test --settings coverlet.runsettings --logger trx
+  
   sonarCloudIdentity:
-   runs-on: ubuntu-latest
+
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -42,8 +44,10 @@ jobs:
         dotnet sonarscanner begin /k:"EBM.Identity" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="EBM.Identity.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="EBM.Identity.Test\TestResults\*.trx"
         dotnet build
         dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+  
   sonarCloudIterations:
-   runs-on: ubuntu-latest
+
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
