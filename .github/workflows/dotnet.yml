@@ -39,8 +39,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-        cd services/Identity/EBM.Identity
-        ls
+        cd services/Identity/EBM.Identity        
         dotnet test --settings coverlet.runsettings --logger trx
         dotnet tool install --global dotnet-sonarscanner
         dotnet sonarscanner begin /k:"EBM.Identity" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="..\test\EBM.Identity.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="..\test\EBM.Identity.Test\TestResults\*.trx"
@@ -62,9 +61,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-        cd services/Iterations
+        cd services/Iterations/EBM.Iterations
+        dotnet test --settings coverlet.runsettings --logger trx
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /k:"EBM.Iterations" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="test\EBM.Iterations.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="test\EBM.Iterations.Test\TestResults\*.trx"
+        dotnet sonarscanner begin /k:"EBM.Iterations" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="..\test\EBM.Iterations.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="..\test\EBM.Iterations.Test\TestResults\*.trx"
         dotnet build
         dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
