@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EBM.Iterations\EBM.Iterations.csproj" />
+    <ProjectReference Include="..\..\EBM.Iterations\EBM.Iterations.csproj" />
   </ItemGroup>
 
 </Project>

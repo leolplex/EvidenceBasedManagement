@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EBM.Identity\EBM.Identity.csproj" />
+    <ProjectReference Include="..\..\EBM.Identity\EBM.Identity.csproj" />
   </ItemGroup>
 
 </Project>

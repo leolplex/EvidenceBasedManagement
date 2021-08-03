@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Identity", "EBM.Identity\EBM.Identity.csproj", "{69C3BC9B-B097-4437-8D82-ADB4FD2C5E33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Identity", "services\Identity\EBM.Identity\EBM.Identity.csproj", "{69C3BC9B-B097-4437-8D82-ADB4FD2C5E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Identity.Test", "EBM.Identity.Test\EBM.Identity.Test.csproj", "{2AE025B2-8BCA-4749-95F7-5DC3D8565027}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Identity.Test", "services\Identity\test\EBM.Identity.Test\EBM.Identity.Test.csproj", "{2AE025B2-8BCA-4749-95F7-5DC3D8565027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Iterations", "EBM.Iterations\EBM.Iterations.csproj", "{1014D793-FB76-4B9B-A61E-B66F174EDA74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Iterations", "services\Iterations\EBM.Iterations\EBM.Iterations.csproj", "{1014D793-FB76-4B9B-A61E-B66F174EDA74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Iterations.Test", "EBM.Iterations.Test\EBM.Iterations.Test.csproj", "{80ABCD50-A4DE-472D-8830-4F41AD532C89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EBM.Iterations.Test", "services\Iterations\test\EBM.Iterations.Test\EBM.Iterations.Test.csproj", "{80ABCD50-A4DE-472D-8830-4F41AD532C89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
