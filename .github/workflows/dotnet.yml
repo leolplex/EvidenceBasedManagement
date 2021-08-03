@@ -39,10 +39,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-        cd services/Identity/EBM.Identity        
+        cd services/Identity/EBM.Identity   
+        dotnet restore     
+        dotnet build --no-restore
+        cd services/Identity/test/EBM.Identity.Test   
         dotnet test --settings coverlet.runsettings --logger trx
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /k:"EBM.Identity" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="..\test\EBM.Identity.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="..\test\EBM.Identity.Test\TestResults\*.trx"
+        dotnet sonarscanner begin /k:"EBM.Identity" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="TestResults\*.trx"
         dotnet build
         dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
   
@@ -62,9 +65,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         cd services/Iterations/EBM.Iterations
+        dotnet restore     
+        dotnet build --no-restore
+        cd services/Identity/test/EBM.Iterations.Test 
         dotnet test --settings coverlet.runsettings --logger trx
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /k:"EBM.Iterations" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="..\test\EBM.Iterations.Test\TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="..\test\EBM.Iterations.Test\TestResults\*.trx"
+        dotnet sonarscanner begin /k:"EBM.Iterations" /o:"leolplex" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" -d:sonar.cs.opencover.reportsPaths="TestResults\*\coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="TestResults\*.trx"
         dotnet build
         dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
