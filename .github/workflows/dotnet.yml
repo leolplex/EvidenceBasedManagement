@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test      
-      run: dotnet test --settings coverlet.runsettings --logger trx
+      run: dotnet test
   
   sonarCloudIdentity:
 
